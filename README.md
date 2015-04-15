@@ -32,9 +32,11 @@ If your blog is located at `myawesomeblog.wordpress.com`, use that for the blog 
 
 ## Problems & Bugs
 
-Please open an issue if you find a problem or bug. If you want to contribute, pull requests are always welcome.
+Please [open an issue][3] if you find a problem or bug. If you want to contribute, [pull requests][4] are always welcome.
 
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/releases/latest "Link to latest release."
-[2]:	foo
+[2]:	https://github.com/JenniferMack/Ulysses-post-to-WP/blob/master/automator-app.zip?raw=true "Direct .zip download."
+[3]:	https://github.com/JenniferMack/Ulysses-post-to-WP/issues "Issue tracker."
+[4]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
 
 [image-1]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150408-18480200-screenshot-sm.jpg
