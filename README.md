@@ -18,7 +18,7 @@ If everything worked, you’ll get a notification showing the post number. Other
 
 ## Ulysses formatting
 
-For the original blog post that started this project, see part one and part two.
+For the original blog post that started this project, see [part one][3] and [part two][4].
 
 Things you need to do in Ulysses:
 
@@ -48,12 +48,14 @@ If your blog is located at `myawesomeblog.wordpress.com`, use that for the blog 
 
 ## Problems & Bugs
 
-Please [open an issue][3] if you find a problem or bug. If you want to contribute, [pull requests][4] are always welcome.
+Please [open an issue][5] if you find a problem or bug. If you want to contribute, [pull requests][6] are always welcome.
 
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/releases/latest "Link to latest release."
 [2]:	https://github.com/JenniferMack/Ulysses-post-to-WP/blob/master/automator-app.zip?raw=true "Direct .zip download."
-[3]:	https://github.com/JenniferMack/Ulysses-post-to-WP/issues "Issue tracker."
-[4]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
+[3]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
+[4]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
+[5]:	https://github.com/JenniferMack/Ulysses-post-to-WP/issues "Issue tracker."
+[6]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
 
 [image-1]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150408-18480200-screenshot-sm.jpg
 [image-2]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150409-15341000-screenshot-sm-4caad16bffa84d168122c7b5efb9429d.jpg
