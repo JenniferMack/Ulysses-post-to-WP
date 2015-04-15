@@ -16,6 +16,22 @@ From inside Ulysses open the export sheet, and choose HTML snippet, then the app
 
 If everything worked, you’ll get a notification showing the post number. Otherwise you’ll see the error message.
 
+## Ulysses formatting
+
+For the original blog post that started this project, see part one and part two.
+
+Things you need to do in Ulysses:
+
+- The first line needs to be a first level Header (`#`), and it will become the title of the blog post.
+- The second line will be a list of tags, the best way to do this is to used the “marked” formatting tag (`::`). This will visually distinguish them.
+- The more tag is created by putting `::MORE::` on a line by itself. This is optional, but useful.
+
+Here’s an example:
+
+![Ulysses recommended formatting,][image-2]
+
+The post will be put into the default category, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
+
 ## For WordPress.com Users
 
 Blogs hosted on WordPress.com don’t have SSL security for the main blog pages, but the admin interface does. For this use the WordPress.com blog name, instead of the actual URL.
@@ -40,3 +56,4 @@ Please [open an issue][3] if you find a problem or bug. If you want to contribut
 [4]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
 
 [image-1]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150408-18480200-screenshot-sm.jpg
+[image-2]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150409-15341000-screenshot-sm-4caad16bffa84d168122c7b5efb9429d.jpg
