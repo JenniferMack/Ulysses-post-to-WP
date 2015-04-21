@@ -16,21 +16,26 @@ content = {}
 
 ARGF.each_line do |line|
   next if "\n" == line
-  post << line.chomp.gsub(/(a\W+)(href="[^#])/, '\1target="_blank" \2')
+  post << line.chomp.gsub(/(a\s+)(href="[^#])/, '\1target="_blank" \2')
 end
 
-content["title"] = post.shift.gsub(/<\/*h1>/, '')
-content["mt_keywords"] = post.shift.gsub(/<\/*p>/, '').split(/,\s*/)
-content["description"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
+title = post.shift.gsub(/<\/*h1>/, '')
+tags  = post.shift.gsub(/<\/*p>/, '').split(/,\s*/)
+delay = 60 * 60 * 2
+
+content["post_title"]   = title
+content["terms_names"]  = {"post_tag" => tags}
+content["post_content"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
+content["post_status"]  = "future"
+content["post_date"]    = (Time.now + delay).strftime("%F %T")
  
 begin
   postnum = wordpress.call(
-    'metaWeblog.newPost',
+    'wp.newPost',
     0,
     wordpress.user,
     wordpress.password,
     content,
-    false     # false for draft, true for publish
   )
 
   puts "Posting Success! (##{postnum})"
