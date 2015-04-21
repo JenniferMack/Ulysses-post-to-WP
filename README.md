@@ -3,7 +3,11 @@ Easily automate posting from Ulysses for Mac to a WordPress blog.
 
 ## Usage
 
-Download the [latest release][1] (or just the [app zip file][2]), then unzip the file. Open it using Automator (you have to launch the Automator app first, then open this app). In the `Run Shell Script` box, change the placeholder information to what’s needed to log into your blog. Then save your changes.
+Download the [.zip file][1], then unzip it. 
+
+Place the `wp-post.rb` script in a conveient location. If you put it in `~/bin` it will be found by the app. If you put it somewhere else, you’ll have to edit the automator script.[^1] Symlinks also work.
+
+In the `wp-post.rb` script, change the placeholder information to what’s needed to log into your blog. Then save your changes.
 
 1. `yourWPblogURL`: the base URL of your WordPress blog.
 2. `yourWPusername`: the username you use for logging into your blog.
@@ -18,7 +22,7 @@ If everything worked, you’ll get a notification showing the post number. Other
 
 ## Ulysses formatting
 
-For the original blog post that started this project, see [part one][3] and [part two][4].
+For the original blog post that started this project, see [part one][2] and [part two][3].
 
 Things you need to do in Ulysses:
 
@@ -30,7 +34,7 @@ Here’s an example:
 
 ![Ulysses recommended formatting,][image-2]
 
-The post will be put into the default category, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
+The post will be **scheduled for publishing two hours after uploading**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
 
 ## For WordPress.com Users
 
@@ -42,20 +46,31 @@ If your blog is located at `myawesomeblog.wordpress.com`, use that for the blog 
 
 `wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. 
 
-`wp-automator-post.rb`: This is the guts of the script that powers the Automator app. It’s here as a way to read the code without having to dig into the Automator app. There are a few changes to the main loop to deal with how Ulysses passes a temporary file.
-
-`automator-app.zip`: This is a zip file of the Automator app. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app`. Edit it with Automator, as described above before running the first time. There will be a security warning because it wasn’t created on your computer. To open it, right-click and chose open, and then click the open button. Now the app can run normally. Place it in a convenient place on your Mac (`~/Applications` is a good place), and then select it as the app Ulysses will export to. 
+`automator-app.zip`: This is a zip file of the Automator app. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app`. There will be a security warning the first time the app is run. This is because it wasn’t created on your computer. To open it, right-click and chose open, and then click the open button. Now the app can run normally. Place it in a convenient place on your Mac (`~/Applications` is a good place), and then select it as the app Ulysses will export to. 
 
 ## Problems & Bugs
 
-Please [open an issue][5] if you find a problem or bug. If you want to contribute, [pull requests][6] are always welcome.
+Please [open an issue][4] if you find a problem or bug. If you want to contribute, [pull requests][5] are always welcome.
 
-[1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/releases/latest "Link to latest release."
-[2]:	https://github.com/JenniferMack/Ulysses-post-to-WP/blob/master/automator-app.zip?raw=true "Direct .zip download."
-[3]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
-[4]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
-[5]:	https://github.com/JenniferMack/Ulysses-post-to-WP/issues "Issue tracker."
-[6]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
+## Notes
+
+_2015-04-21_
+
+I’ve simplified the app as to not have the posting code inside of it. Having one external script is easier to maintain and update. The Automator apps don’t travel well to GitHub and back. This way I shouldn’t have to update it again as there’s no posting code inside of it. But it now needs both parts, the ruby script and the Automator app to work. It’s a little more work to setup than the old app, but works the same. 
+
+Also, the posting behavior is different. Instead of being sent to the blog as a draft. It is sent as a scheduled post set to be published two hours in the future. This is so I don’t have to interact with WordPress at all. I also won’t forget to publish a draft if I get distracted. I think two hours is enough time to check the preview if there’s any question about formatting.
+
+This app now uses the WordPress native posting API instead of the MetaWeblog API. That’s why posts can now be scheduled.
+
+If there’s interest, I can create and maintain a draft posting branch that has the old behavior.
+
+[^1]:	To do this, open Automator then open the app. Change the file location in the “Run Shell Script” box and save it.
+
+[1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
+[2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
+[3]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
+[4]:	https://github.com/JenniferMack/Ulysses-post-to-WP/issues "Issue tracker."
+[5]:	https://github.com/JenniferMack/Ulysses-post-to-WP/pulls "Create a pull request."
 
 [image-1]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150408-18480200-screenshot-sm.jpg
 [image-2]:	https://jennifermackdotnet.files.wordpress.com/2015/04/20150409-15341000-screenshot-sm-4caad16bffa84d168122c7b5efb9429d.jpg
