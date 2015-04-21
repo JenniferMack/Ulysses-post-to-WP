@@ -5,7 +5,7 @@ Easily automate posting from Ulysses for Mac to a WordPress blog.
 
 Download the [.zip file][1], then unzip it. 
 
-Place the `wp-post.rb` script in a conveient location. If you put it in `~/bin` it will be found by the app. If you put it somewhere else, you’ll have to edit the automator script.[^1] Symlinks also work.
+Place the `wp-post.rb` script in a conveient location. If you put it in `~/bin` it will be found by the app. If you put it somewhere else, you’ll have to edit the automator script to point to the new location. Symlinks also work.
 
 In the `wp-post.rb` script, change the placeholder information to what’s needed to log into your blog. Then save your changes.
 
@@ -63,8 +63,6 @@ Also, the posting behavior is different. Instead of being sent to the blog as a 
 This app now uses the WordPress native posting API instead of the MetaWeblog API. That’s why posts can now be scheduled.
 
 If there’s interest, I can create and maintain a draft posting branch that has the old behavior.
-
-[^1]:	To do this, open Automator then open the app. Change the file location in the “Run Shell Script” box and save it.
 
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
 [2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
