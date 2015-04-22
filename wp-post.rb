@@ -21,13 +21,17 @@ end
 
 title = post.shift.gsub(/<\/*h1>/, '')
 tags  = post.shift.gsub(/<\/*p>/, '').split(/,\s*/)
-delay = 60 * 60 * 2
+
+# Edit to change delay in hours:
+delay = 2
+post_time = Time.now + 60 * 60 * delay
 
 content["post_title"]   = title
 content["terms_names"]  = {"post_tag" => tags}
 content["post_content"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
 content["post_status"]  = "future"
-content["post_date"]    = (Time.now + delay).strftime("%F %T")
+# Post time must be in UTC
+content["post_date"]    = post_time.utc.strftime("%F %T")
  
 begin
   postnum = wordpress.call(
