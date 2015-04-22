@@ -64,6 +64,10 @@ This app now uses the WordPress native posting API instead of the MetaWeblog API
 
 If there’s interest, I can create and maintain a draft posting branch that has the old behavior.
 
+_2015-04-22_
+
+Posts weren't being properly scheduled for the future. This has to do with WP keeping the post dates in UTC time internally. Even though the documentation says local time is okay. It wasn't. Now it's fixed. I also made it easier to find the variable to change the delay time.
+
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
 [2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
 [3]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
