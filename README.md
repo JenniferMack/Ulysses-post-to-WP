@@ -68,6 +68,8 @@ _2015-04-22_
 
 Posts weren't being properly scheduled for the future. This has to do with WP keeping the post dates in UTC time internally. Even though the documentation says local time is okay. It wasn't. Now it's fixed. I also made it easier to find the variable to change the delay time.
 
+Update to force comments open. I have comments set to close after 14 days, but comments were closed when uploading.
+
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
 [2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
 [3]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
