@@ -39,7 +39,7 @@ content["comment_status"] = "open"
 
 # Post time must be in UTC
 content["post_status"]  = "future"
-content["post_date"]    = post_time.utc.strftime("%F %T")
+content["post_date"]    = post_time.strftime("%F %T")
 
 begin
   postnum = wordpress.call(
