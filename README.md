@@ -74,6 +74,15 @@ Posts weren't being properly scheduled for the future. This has to do with WP ke
 
 Update to force comments open. I have comments set to close after 14 days, but comments were closed when uploading.
 
+_2015-05-22_
+
+I pushed several commits:
+
+- Added an option for using categories instead of tags. 
+- Reverted to using local time for the post time. Previously UTC time was needed, now on WP.com at least, this is fixed.
+- Updated this file.
+
+
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
 [2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
 [3]:	http://jennifermack.net/2015/04/09/post-to-wordpress-from-ulysses-update-49/ "Blog link."
