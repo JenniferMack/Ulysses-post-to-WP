@@ -36,6 +36,10 @@ Here’s an example:
 
 The post will be **scheduled for publishing two hours after uploading**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
 
+### Using categories instead of tags
+
+Your taxonomies are your business. The default is to use tags. If you want to use categories, then look at lines 31-35. Categories can be activated by uncommenting line 35, and commenting line 32. To revert using tags, do the opposite.
+
 ## For WordPress.com Users
 
 Blogs hosted on WordPress.com don’t have SSL security for the main blog pages, but the admin interface does. For this use the WordPress.com blog name, instead of the actual URL.
