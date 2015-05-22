@@ -27,14 +27,20 @@ delay = 2
 post_time = Time.now + 60 * 60 * delay
 
 content["post_title"]   = title
+
+# Comment this line to use categories instead of tags
 content["terms_names"]  = {"post_tag" => tags}
+#
+# Comment this line to use tags instead of categories
+#content["terms_names"]  = {"category" => tags}
+
 content["post_content"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
 content["comment_status"] = "open"
 
 # Post time must be in UTC
 content["post_status"]  = "future"
 content["post_date"]    = post_time.utc.strftime("%F %T")
- 
+
 begin
   postnum = wordpress.call(
     'wp.newPost',
