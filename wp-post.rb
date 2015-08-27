@@ -24,7 +24,7 @@ tags  = post.shift.gsub(/<\/*p>/, '').split(/,\s*/)
 
 # Edit to change delay in hours:
 delay = 2
-post_time = Time.now + 60 * 60 * delay
+post_time = Time.now.utc + (60 * 60 * delay)
 
 content["post_title"]   = title
 
@@ -39,7 +39,7 @@ content["comment_status"] = "open"
 
 # Post time must be in UTC
 content["post_status"]  = "future"
-content["post_date"]    = post_time.strftime("%F %T")
+content["post_date_gmt"] = post_time.strftime("%F %T")
 
 begin
   postnum = wordpress.call(
