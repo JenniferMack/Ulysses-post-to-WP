@@ -35,11 +35,11 @@ content["terms_names"]  = {"post_tag" => tags}
 #content["terms_names"]  = {"category" => tags}
 
 content["post_content"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
-content["comment_status"] = "open"
+#content["comment_status"] = "open"
 
 # Post time must be in UTC
 content["post_status"]  = "future"
-content["post_date_gmt"] = post_time.strftime("%F %T")
+content["post_date_gmt"] = post_time.strftime("%F %R")
 
 begin
   postnum = wordpress.call(
