@@ -37,9 +37,8 @@ content["terms_names"]  = {"post_tag" => tags}
 content["post_content"] = post.join("\n\n").sub(/<p>MORE<\/p>/, '<!--more-->')
 #content["comment_status"] = "open"
 
-# Post time must be in UTC
-content["post_status"]  = "future"
-content["post_date_gmt"] = post_time.strftime("%F %R")
+# Post will be sent as draft
+content["post_status"]  = "draft"
 
 begin
   postnum = wordpress.call(
