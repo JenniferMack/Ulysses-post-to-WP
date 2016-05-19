@@ -10,7 +10,7 @@ Even with the newest version of Ulysses (currently in beta as of mid-May 2016) a
 
 Download the [.zip file][1], then unzip it. 
 
-There will be two files `Post-to-Wordpress.app` and `ulysses-wp-password.json`. 
+There will be two files (`Post-to-Wordpress.zip` and `ulysses-wp-password.json`) that you need. The rest are optional.
 
 Place the `Post-to-Wordpress.app` in a convenient location. The Applications folder in your home folder is a good location. 
 
@@ -64,9 +64,11 @@ If your blog has a custom domain name, you still need to use the WordPress.com b
 
 `wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. It’s the same code that’s contained in the Automator app. So only download this if you care about posting from the command line. It’s not included in the zip file for this reason.
 
-`automator-app.zip`: This is a zip file of the Automator app and the settings file. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app` and `ulysses-wp-password.json`. 
+`Post-to-WordPress.zip`: This is a zip file of the Automator app. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app`. 
 
 There will be a security warning the first time the app is run. This is because it wasn’t created on your computer. To open it, right-click and chose open, and then click the open button. Now the app can run normally. Place it in a convenient place on your Mac (`~/Applications` is a good place), and then select it as the app Ulysses will export to. 
+
+`ulysses-wp-password.json`: The settings file where your WordPress login information is stored.
 
 ## Problems & Bugs
 
