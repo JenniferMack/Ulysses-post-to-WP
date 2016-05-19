@@ -1,18 +1,32 @@
 # Ulysses post to WP
-Easily automate posting from Ulysses for Mac to a WordPress blog.
+Easily automate posting from Ulysses for Mac to a WordPress blog. 
+
+Even with the newest version of Ulysses (currently in beta as of mid-May 2016) adding a built-in WordPress uploader, there’s a few things it does I don’t like.
+- The Ulysses keywords are used as post tags. I use the keywords to organize sheets, and having content-related keywords clutters things up in the sheet column. I’d rather have them in the post body.
+- There’s no option to specify links to open in a new window. 
+- No built in support for the `MORE` option. Adding html directly is an option, but I’d rather just type `::MORE::`.
 
 ## Usage
 
 Download the [.zip file][1], then unzip it. 
 
-Place the `wp-post.rb` script in a conveient location. If you put it in `~/bin` it will be found by the app. If you put it somewhere else, you’ll have to edit the automator script to point to the new location. Symlinks also work.
+There will be two files `Post-to-Wordpress.app` and `ulysses-wp-password.json`. 
 
-In the `wp-post.rb` script, change the placeholder information to what’s needed to log into your blog. Then save your changes.
+Place the `Post-to-Wordpress.app` in a convenient location. The Applications folder in your home folder is a good location. 
 
-1. `yourWPblogURL`: the base URL of your WordPress blog.
+In the `ulysses-wp-password.json` file, change the placeholder information to what’s needed to log into your blog. Then save your changes.
+
+1. `yourWPblogURL.com`: the base URL of your WordPress blog.
 2. `yourWPusername`: the username you use for logging into your blog.
 3. `yourWPpassword`: the password you use for logging into your blog.
-4. If you have SSL enabled on your blog (highly recommended) change the `false` to `true`.
+4. `use_ssl`: If you _do not have SSL enabled_ on your blog (not recommended) change the `true` to `false`.
+
+Now copy the `ulysses-wp-password.json` file to your home folder **and rename it to** `.ulysses-wp-password.json`. That’s where the app looks for it. If it’s not there, you’ll get an error message. The best way to do this is from the terminal with this command.
+`cp ulysses-wp-password.json ~/.ulysses-wp-password.json`
+
+If you’re using the Finder, hold the option key down while dragging to your home folder, then add the leading dot once it’s copied.
+
+## Usage
 
 From inside Ulysses open the export sheet, and choose HTML snippet, then the app icon -\> other. Navigate to where you saved the Post-to-WordPress app, and select it. 
 
@@ -34,7 +48,7 @@ Here’s an example:
 
 ![Ulysses recommended formatting,][image-2]
 
-The post will be **scheduled for publishing two hours after uploading**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
+The post will be uploaded as **a draft post**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
 
 ### Using categories instead of tags
 
@@ -42,46 +56,21 @@ Your taxonomies are your business. The default is to use tags. If you want to us
 
 ## For WordPress.com Users
 
-Blogs hosted on WordPress.com don’t have SSL security for the main blog pages, but the admin interface does. For this use the WordPress.com blog name, instead of the actual URL.
+Blogs hosted on WordPress.com have been upgraded to use SSL security recently. So the default is now to use SSL.
 
-If your blog is located at `myawesomeblog.wordpress.com`, use that for the blog URL in the settings. Even if your blog’s public URL is different, this will still work. Activate SSL, as shown in #4 above, and now your password won’t be sent in plaintext.
+If your blog has a custom domain name, you still need to use the WordPress.com blog URL (`myawesomeblog.wordpress.com`, for example)  in the `yourWPblogURL` setting. Using the custom domain might work, but the WordPress.com URL always works.
 
 ## Files
 
-`wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. 
+`wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. It’s the same code that’s contained in the Automator app. So only download this if you care about posting from the command line. It’s not included in the zip file for this reason.
 
-`automator-app.zip`: This is a zip file of the Automator app. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app`. There will be a security warning the first time the app is run. This is because it wasn’t created on your computer. To open it, right-click and chose open, and then click the open button. Now the app can run normally. Place it in a convenient place on your Mac (`~/Applications` is a good place), and then select it as the app Ulysses will export to. 
+`automator-app.zip`: This is a zip file of the Automator app and the settings file. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app` and `ulysses-wp-password.json`. 
+
+There will be a security warning the first time the app is run. This is because it wasn’t created on your computer. To open it, right-click and chose open, and then click the open button. Now the app can run normally. Place it in a convenient place on your Mac (`~/Applications` is a good place), and then select it as the app Ulysses will export to. 
 
 ## Problems & Bugs
 
 Please [open an issue][4] if you find a problem or bug. If you want to contribute, [pull requests][5] are always welcome.
-
-## Notes
-
-_2015-04-21_
-
-I’ve simplified the app as to not have the posting code inside of it. Having one external script is easier to maintain and update. The Automator apps don’t travel well to GitHub and back. This way I shouldn’t have to update it again as there’s no posting code inside of it. But it now needs both parts, the ruby script and the Automator app to work. It’s a little more work to setup than the old app, but works the same. 
-
-Also, the posting behavior is different. Instead of being sent to the blog as a draft. It is sent as a scheduled post set to be published two hours in the future. This is so I don’t have to interact with WordPress at all. I also won’t forget to publish a draft if I get distracted. I think two hours is enough time to check the preview if there’s any question about formatting.
-
-This app now uses the WordPress native posting API instead of the MetaWeblog API. That’s why posts can now be scheduled.
-
-If there’s interest, I can create and maintain a draft posting branch that has the old behavior.
-
-_2015-04-22_
-
-Posts weren't being properly scheduled for the future. This has to do with WP keeping the post dates in UTC time internally. Even though the documentation says local time is okay. It wasn't. Now it's fixed. I also made it easier to find the variable to change the delay time.
-
-Update to force comments open. I have comments set to close after 14 days, but comments were closed when uploading.
-
-_2015-05-22_
-
-I pushed several commits:
-
-- Added an option for using categories instead of tags. 
-- Reverted to using local time for the post time. Previously UTC time was needed, now on WP.com at least, this is fixed.
-- Updated this file.
-
 
 [1]:	https://github.com/JenniferMack/Ulysses-post-to-WP/archive/master.zip "Direct .zip download."
 [2]:	http://jennifermack.net/2015/04/08/post-to-wordpress-from-ulysses/ "Blog link"
