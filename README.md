@@ -23,7 +23,9 @@ Now copy the `ulysses-wp-password.json` file to your home folder **and rename it
 If you’re using the Finder, hold the option key down while dragging to your home folder, then add the leading dot once it’s copied.
 ## Usage
 From inside Ulysses open the export sheet, and choose HTML snippet, then the app icon -\> other. Navigate to where you saved the Post-to-WordPress app, and select it. 
+
 ![Ulysses export sheet.][image-1]
+
 If everything worked, you’ll get a notification showing the post number. Otherwise you’ll see the error message.
 ## Ulysses formatting
 For the original blog post that started this project, see [part one][2] and [part two][3].
@@ -34,7 +36,9 @@ Things you need to do in Ulysses:
 - The more tag is created by putting `::MORE::` on a line by itself. This is optional, but useful.
 
 Here’s an example:
+
 ![Ulysses recommended formatting,][image-2]
+
 The post will be uploaded as **a draft post**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
 ### Using categories instead of tags
 Your taxonomies are your business. The default is to use tags. If you want to use categories, then look at lines 41-45. Categories can be activated by uncommenting line 45, and commenting line 42. To revert using tags, do the opposite.
