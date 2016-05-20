@@ -62,7 +62,7 @@ If your blog has a custom domain name, you still need to use the WordPress.com b
 
 ## Files
 
-`wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. It’s the same code that’s contained in the Automator app. So only download this if you care about posting from the command line. It’s not included in the zip file for this reason.
+`wp-post.rb`: This is a stand-alone script for use from the command line. It takes standard input and posts to WordPress. If you have HTML on the clipboard, the easiest command is `pbpaste | wp-post.rb`. It’s the same code that’s contained in the Automator app. So only download this if you care about posting from the command line.
 
 `Post-to-WordPress.zip`: This is a zip file of the Automator app. It has to be zipped to survive the trip to GitHub and back. Unzipping this will create the `Post-to-WordPress.app`. 
 
