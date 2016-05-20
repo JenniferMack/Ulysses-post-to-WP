@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -E UTF-8:UTF-8
+#! /usr/bin/env ruby
 
 require 'xmlrpc/client'
 require 'json'
@@ -28,7 +28,7 @@ begin
     post = []
     content = {}
 
-    ARGF.each_line do |line|
+    ARGF.set_encoding('utf-8').each_line do |line|
         next if "\n" == line
         post << line.chomp.gsub(/(a\s+)(href="[^#])/, '\1target="_blank" \2')
     end
@@ -49,8 +49,8 @@ begin
 
     # Set draft post status
     content["post_status"]  = "draft"
-rescue => err
-    puts "Build post error: #{err}"
+rescue Exception => err
+    puts "Build post error: #{err.backtrace.inspect}"
     exit
 end
 
@@ -67,4 +67,3 @@ begin
 rescue => err
     puts "Posting error: #{err}"
 end
-
