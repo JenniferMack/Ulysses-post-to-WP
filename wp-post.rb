@@ -49,8 +49,8 @@ begin
 
     # Set draft post status
     content["post_status"]  = "draft"
-rescue Exception => err
-    puts "Build post error: #{err.backtrace.inspect}"
+rescue => err
+    puts "Build post error: #{err}"
     exit
 end
 
