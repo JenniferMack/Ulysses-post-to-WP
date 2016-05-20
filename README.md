@@ -1,19 +1,23 @@
 # Ulysses post to WP
 Easily automate posting from Ulysses for Mac to a WordPress blog. 
 Even with the newest version of Ulysses (currently in beta as of mid-May 2016) adding a built-in WordPress uploader, there’s a few things it does I don’t like.
+
 - The Ulysses keywords are used as post tags. I use the keywords to organize sheets, and having content-related keywords clutters things up in the sheet column. I’d rather have them in the post body.
 - There’s no option to specify links to open in a new window. 
 - No built in support for the `MORE` option. Adding html directly is an option, but I’d rather just type `::MORE::`.
+
 ## Usage
 Download the [.zip file][1], then unzip it. 
 There will be two files (`Post-to-Wordpress.zip` and `ulysses-wp-password.json`) that you need. The rest are optional.
 Place the `Post-to-Wordpress.app` in a convenient location. The Applications folder in your home folder is a good location. Then right click on it and select `Open`. Click the `Open` button in the security warning box. Then click cancel when the posting confirmation box. This  happens because the app wasn’t created on your computer. 
 If you don’t want to bypass the security warning this way, open the app file in Automator. Then make a change like adding a space to a blank line and re-save it. Now it should be recognized as something made on your computer and be trusted to run.
 In the `ulysses-wp-password.json` file, change the placeholder information to what’s needed to log into your blog. Then save your changes.
+
 1. `yourWPblogURL.com`: the base URL of your WordPress blog.
 2. `yourWPusername`: the username you use for logging into your blog.
 3. `yourWPpassword`: the password you use for logging into your blog.
 4. `use_ssl`: If you _do not have SSL enabled_ on your blog (not recommended) change the `true` to `false`.
+
 Now copy the `ulysses-wp-password.json` file to your home folder **and rename it to** `.ulysses-wp-password.json`. That’s where the app looks for it. If it’s not there, you’ll get an error message. The best way to do this is from the terminal with this command.
 `cp ulysses-wp-password.json ~/.ulysses-wp-password.json`
 If you’re using the Finder, hold the option key down while dragging to your home folder, then add the leading dot once it’s copied.
@@ -24,9 +28,11 @@ If everything worked, you’ll get a notification showing the post number. Other
 ## Ulysses formatting
 For the original blog post that started this project, see [part one][2] and [part two][3].
 Things you need to do in Ulysses:
+
 - The first line needs to be a first level Header (`#`), and it will become the title of the blog post.
 - The second line will be a list of tags, the best way to do this is to used the “marked” formatting tag (`::`). This will visually distinguish them.
 - The more tag is created by putting `::MORE::` on a line by itself. This is optional, but useful.
+
 Here’s an example:
 ![Ulysses recommended formatting,][image-2]
 The post will be uploaded as **a draft post**, and all other options will be your defaults. The title and tags are the most important, and are easy to configure this way.
