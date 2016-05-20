@@ -52,7 +52,7 @@ The post will be uploaded as **a draft post**, and all other options will be you
 
 ### Using categories instead of tags
 
-Your taxonomies are your business. The default is to use tags. If you want to use categories, then look at lines 31-35. Categories can be activated by uncommenting line 35, and commenting line 32. To revert using tags, do the opposite.
+Your taxonomies are your business. The default is to use tags. If you want to use categories, then look at lines 41-45. Categories can be activated by uncommenting line 45, and commenting line 42. To revert using tags, do the opposite.
 
 ## For WordPress.com Users
 
